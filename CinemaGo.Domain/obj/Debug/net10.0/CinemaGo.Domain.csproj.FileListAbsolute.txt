@@ -1,0 +1,11 @@
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\bin\Debug\net10.0\CinemaGo.Domain.deps.json
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\bin\Debug\net10.0\CinemaGo.Domain.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\bin\Debug\net10.0\CinemaGo.Domain.pdb
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\obj\Debug\net10.0\CinemaGo.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\obj\Debug\net10.0\CinemaGo.Domain.AssemblyInfoInputs.cache
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\obj\Debug\net10.0\CinemaGo.Domain.AssemblyInfo.cs
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\obj\Debug\net10.0\CinemaGo.Domain.csproj.CoreCompileInputs.cache
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\obj\Debug\net10.0\CinemaGo.Domain.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\obj\Debug\net10.0\refint\CinemaGo.Domain.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\obj\Debug\net10.0\CinemaGo.Domain.pdb
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Domain\obj\Debug\net10.0\ref\CinemaGo.Domain.dll

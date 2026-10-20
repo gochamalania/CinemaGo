@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CinemaGo.Application\CinemaGo.Application.csproj" />
+      <ProjectReference Include="..\CinemaGo.Domain\CinemaGo.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

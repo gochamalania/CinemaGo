@@ -1,0 +1,17 @@
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\bin\Debug\net10.0\CinemaGo.Infrastructure.deps.json
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\bin\Debug\net10.0\CinemaGo.Infrastructure.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\bin\Debug\net10.0\CinemaGo.Infrastructure.pdb
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\bin\Debug\net10.0\CinemaGo.Application.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\bin\Debug\net10.0\CinemaGo.Domain.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\bin\Debug\net10.0\CinemaGo.Application.pdb
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\bin\Debug\net10.0\CinemaGo.Domain.pdb
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.Infrastructure.AssemblyInfo.cs
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.FD96AF18.Up2Date
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.Infrastructure.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\refint\CinemaGo.Infrastructure.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.Infrastructure.pdb
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\ref\CinemaGo.Infrastructure.dll

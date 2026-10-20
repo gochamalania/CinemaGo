@@ -1,0 +1,15 @@
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\bin\Debug\net10.0\CinemaGo.Application.deps.json
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\bin\Debug\net10.0\CinemaGo.Application.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\bin\Debug\net10.0\CinemaGo.Application.pdb
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\bin\Debug\net10.0\CinemaGo.Domain.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\bin\Debug\net10.0\CinemaGo.Domain.pdb
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\obj\Debug\net10.0\CinemaGo.Application.csproj.AssemblyReference.cache
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\obj\Debug\net10.0\CinemaGo.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\obj\Debug\net10.0\CinemaGo.Application.AssemblyInfoInputs.cache
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\obj\Debug\net10.0\CinemaGo.Application.AssemblyInfo.cs
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\obj\Debug\net10.0\CinemaGo.Application.csproj.CoreCompileInputs.cache
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\obj\Debug\net10.0\CinemaGo.887A64CE.Up2Date
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\obj\Debug\net10.0\CinemaGo.Application.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\obj\Debug\net10.0\refint\CinemaGo.Application.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\obj\Debug\net10.0\CinemaGo.Application.pdb
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Application\obj\Debug\net10.0\ref\CinemaGo.Application.dll
