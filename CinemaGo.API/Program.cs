@@ -10,9 +10,17 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint(
+            "/openapi/v1.json",
+            "CinemaGo API v1"
+        );
+    });
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 var summaries = new[]
 {

@@ -15,3 +15,6 @@ C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj
 C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\refint\CinemaGo.Infrastructure.dll
 C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.Infrastructure.pdb
 C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\ref\CinemaGo.Infrastructure.dll
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.Infrastructure.sourcelink.json
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\bin\Debug\net10.0\CinemaGo.Infrastructure.runtimeconfig.json
+C:\Users\gocha\OneDrive\Desktop\CinemaGo-C#\CinemaGo\CinemaGo.Infrastructure\obj\Debug\net10.0\CinemaGo.Infrastructure.genruntimeconfig.cache
