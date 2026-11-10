@@ -1,0 +1,26 @@
+
+# .NET build files
+**/bin/
+**/obj/
+
+# JetBrains Rider
+.idea/
+*.DotSettings.user
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# User secrets and environment files
+**/secrets.json
+.env
+.env.*
+
+# Local configuration
+**/appsettings.Local.json
+**/appsettings.Development.local.json
+
+# Logs
+*.log
+logs/
