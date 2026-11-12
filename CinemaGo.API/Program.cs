@@ -1,3 +1,9 @@
+using Microsoft.OpenApi;
+
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+
 using CinemaGo.Infrastructure.Services;
 
 using CinemaGo.Application.Interfaces;
@@ -31,9 +37,75 @@ builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 
 
 
+var jwtSecretKey = builder.Configuration["JwtSettings:SecretKey"]
+                   ?? throw new InvalidOperationException(
+                       "JWT Secret Key is not configured.");
 
+var jwtIssuer = builder.Configuration["JwtSettings:Issuer"]
+                ?? throw new InvalidOperationException(
+                    "JWT Issuer is not configured.");
+
+var jwtAudience = builder.Configuration["JwtSettings:Audience"]
+                  ?? throw new InvalidOperationException(
+                      "JWT Audience is not configured.");
+
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = jwtIssuer,
+
+            ValidateAudience = true,
+            ValidAudience = jwtAudience,
+
+            ValidateLifetime = true,
+
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(jwtSecretKey)),
+
+            ClockSkew = TimeSpan.Zero
+        };
+    });
+
+builder.Services.AddAuthorization();
+
+
+builder.Services.AddControllers();
 // Add services to the container
-builder.Services.AddOpenApi();
+
+builder.Services.AddOpenApi(options =>
+{
+    options.AddDocumentTransformer((document, context, cancellationToken) =>
+    {
+        document.Components ??= new OpenApiComponents();
+
+        document.Components.SecuritySchemes ??=
+            new Dictionary<string, IOpenApiSecurityScheme>();
+
+        document.Components.SecuritySchemes["Bearer"] =
+            new OpenApiSecurityScheme
+            {
+                Type = SecuritySchemeType.Http,
+                Scheme = "bearer",
+                BearerFormat = "JWT",
+                Description = "Enter your JWT token."
+            };
+
+        document.Security ??= new List<OpenApiSecurityRequirement>();
+
+        document.Security.Add(new OpenApiSecurityRequirement
+        {
+            [new OpenApiSecuritySchemeReference("Bearer", document)] = []
+        });
+
+        return Task.CompletedTask;
+    });
+});
+
 
 var app = builder.Build();
 
@@ -74,6 +146,10 @@ app.MapGet("/weatherforecast", () =>
     })
     .WithName("GetWeatherForecast");
 
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllers();
 app.Run();
 
 record WeatherForecast(

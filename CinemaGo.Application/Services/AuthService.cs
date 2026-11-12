@@ -49,6 +49,8 @@ public class AuthService : IAuthService
         );
 
         await _userRepository.AddAsync(user);
+        
+        var token = _jwtTokenService.GenerateToken(user);
 
         return new AuthResponseDto
         {
@@ -57,14 +59,48 @@ public class AuthService : IAuthService
             LastName = user.LastName,
             Email = user.Email,
             Role = user.Role,
-            Token = string.Empty,
-            ExpiresAt = default
+            Token = token,
+            ExpiresAt = DateTime.UtcNow.AddMinutes(60)
         };
     }
 
-
-    public Task<AuthResponseDto> LoginAsync(LoginRequestDto request)
+    
+    
+    public async Task<AuthResponseDto> LoginAsync(LoginRequestDto request)
     {
-        throw new NotImplementedException();
+        var email = request.Email.Trim();
+
+        var user = await _userRepository.GetByEmailAsync(email);
+
+        if (user == null)
+        {
+            throw new UnauthorizedAccessException(
+                "Invalid email or password.");
+        }
+
+        var passwordResult = _passwordHasher.VerifyHashedPassword(
+            user,
+            user.PasswordHash,
+            request.Password);
+
+        if (passwordResult == PasswordVerificationResult.Failed)
+        {
+            throw new UnauthorizedAccessException(
+                "Invalid email or password.");
+        }
+
+        var token = _jwtTokenService.GenerateToken(user);
+
+        return new AuthResponseDto
+        {
+            UserId = user.Id,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email,
+            Role = user.Role,
+            Token = token,
+            ExpiresAt = DateTime.UtcNow.AddMinutes(60)
+        };
     }
+
 }
