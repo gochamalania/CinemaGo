@@ -1,3 +1,5 @@
+
+using CinemaGo.API.Middleware;
 using Microsoft.OpenApi;
 
 using System.Text;
@@ -5,19 +7,17 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
 using CinemaGo.Infrastructure.Services;
+using CinemaGo.Infrastructure.BackgroundServices;
 
 using CinemaGo.Application.Interfaces;
 using CinemaGo.Application.Services;
 using CinemaGo.Infrastructure.Repositories;
 
-
 using CinemaGo.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
-
 using CinemaGo.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,17 +26,51 @@ builder.Services.AddDbContext<CinemaGoDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
+// User Repository
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+// User Profile Service
+builder.Services.AddScoped<IUserService, UserService>();
 
+// Authentication
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+// Movies
+builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+builder.Services.AddScoped<IMovieService, MovieService>();
+
+// Halls
+builder.Services.AddScoped<IHallRepository, HallRepository>();
+builder.Services.AddScoped<IHallService, HallService>();
+
+// Seats
+builder.Services.AddScoped<ISeatRepository, SeatRepository>();
+builder.Services.AddScoped<ISeatService, SeatService>();
+
+// Sessions
+builder.Services.AddScoped<ISessionRepository, SessionRepository>();
+builder.Services.AddScoped<ISessionService, SessionService>();
+
+// Reservations
+builder.Services.AddScoped<ReservationRepository>();
+
+builder.Services.AddScoped<IReservationRepository>(sp =>
+    sp.GetRequiredService<ReservationRepository>());
+
+builder.Services.AddScoped<IReservationService, ReservationService>();
+
+// Background service for expired reservation holds
+builder.Services.AddHostedService<ReservationExpirationService>();
+
+// Tickets
+builder.Services.AddScoped<ITicketRepository, TicketRepository>();
+builder.Services.AddScoped<ITicketService, TicketService>();
+
+// JWT Token Service
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 
-
-
+// JWT Configuration
 var jwtSecretKey = builder.Configuration["JwtSettings:SecretKey"]
                    ?? throw new InvalidOperationException(
                        "JWT Secret Key is not configured.");
@@ -73,10 +107,14 @@ builder.Services
 
 builder.Services.AddAuthorization();
 
-
+// Controllers
 builder.Services.AddControllers();
-// Add services to the container
 
+// Global Exception Handling
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+
+// OpenAPI and Swagger JWT configuration
 builder.Services.AddOpenApi(options =>
 {
     options.AddDocumentTransformer((document, context, cancellationToken) =>
@@ -106,10 +144,12 @@ builder.Services.AddOpenApi(options =>
     });
 });
 
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
+// Global Exception Handling Middleware
+app.UseExceptionHandler();
+
+// Configure HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -123,40 +163,15 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+// HTTPS redirection disabled for local development
 // app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild",
-    "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5)
-            .Select(index =>
-                new WeatherForecast(
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-
-        return forecast;
-    })
-    .WithName("GetWeatherForecast");
-
+// Authentication and Authorization middleware
 app.UseAuthentication();
 app.UseAuthorization();
 
+// API Controllers
 app.MapControllers();
-app.Run();
 
-record WeatherForecast(
-    DateOnly Date,
-    int TemperatureC,
-    string? Summary)
-{
-    public int TemperatureF =>
-        32 + (int)(TemperatureC / 0.5556);
-}
+// Start application
+app.Run();

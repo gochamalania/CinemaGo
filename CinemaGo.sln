@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaGo.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaGo.API", "CinemaGo.API\CinemaGo.API.csproj", "{B21F54CC-4067-47DB-A7B7-A164C459C6DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaGo.Tests", "CinemaGo.Tests\CinemaGo.Tests.csproj", "{429927DA-D2EC-45EE-BBAC-7B4BBE4ECCFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{B21F54CC-4067-47DB-A7B7-A164C459C6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B21F54CC-4067-47DB-A7B7-A164C459C6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B21F54CC-4067-47DB-A7B7-A164C459C6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{429927DA-D2EC-45EE-BBAC-7B4BBE4ECCFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{429927DA-D2EC-45EE-BBAC-7B4BBE4ECCFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{429927DA-D2EC-45EE-BBAC-7B4BBE4ECCFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{429927DA-D2EC-45EE-BBAC-7B4BBE4ECCFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

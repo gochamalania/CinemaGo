@@ -1,4 +1,5 @@
-﻿using CinemaGo.Application.DTOs.Auth;
+﻿
+using CinemaGo.Application.DTOs.Auth;
 using CinemaGo.Application.Interfaces;
 using CinemaGo.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -14,16 +15,37 @@ public class AuthService : IAuthService
     public AuthService(
         IUserRepository userRepository,
         IPasswordHasher<User> passwordHasher,
-        IJwtTokenService jwtTokenService
-        )
+        IJwtTokenService jwtTokenService)
     {
         _userRepository = userRepository;
         _passwordHasher = passwordHasher;
         _jwtTokenService = jwtTokenService;
     }
-    
-    public async Task<AuthResponseDto> RegisterAsync(RegisterRequestDto request)
+
+    public async Task<AuthResponseDto> RegisterAsync(
+        RegisterRequestDto request)
     {
+        if (!request.DateOfBirth.HasValue)
+        {
+            throw new ArgumentException(
+                "Date of birth is required.");
+        }
+
+        var dateOfBirth = request.DateOfBirth.Value.Date;
+        var today = DateTime.UtcNow.Date;
+
+        if (dateOfBirth > today)
+        {
+            throw new ArgumentException(
+                "Date of birth cannot be in the future.");
+        }
+
+        if (dateOfBirth < today.AddYears(-120))
+        {
+            throw new ArgumentException(
+                "Age cannot exceed 120 years.");
+        }
+
         string email = request.Email.Trim();
 
         var existingUser = await _userRepository.GetByEmailAsync(email);
@@ -40,7 +62,8 @@ public class AuthService : IAuthService
             LastName = request.LastName.Trim(),
             Email = email,
             Role = "Customer",
-            CreatedAt = DateTime.UtcNow
+            CreatedAt = DateTime.UtcNow,
+            DateOfBirth = dateOfBirth
         };
 
         user.PasswordHash = _passwordHasher.HashPassword(
@@ -49,7 +72,7 @@ public class AuthService : IAuthService
         );
 
         await _userRepository.AddAsync(user);
-        
+
         var token = _jwtTokenService.GenerateToken(user);
 
         return new AuthResponseDto
@@ -64,9 +87,8 @@ public class AuthService : IAuthService
         };
     }
 
-    
-    
-    public async Task<AuthResponseDto> LoginAsync(LoginRequestDto request)
+    public async Task<AuthResponseDto> LoginAsync(
+        LoginRequestDto request)
     {
         var email = request.Email.Trim();
 
@@ -102,5 +124,4 @@ public class AuthService : IAuthService
             ExpiresAt = DateTime.UtcNow.AddMinutes(60)
         };
     }
-
 }

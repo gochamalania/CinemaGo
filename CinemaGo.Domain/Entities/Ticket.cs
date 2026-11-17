@@ -3,11 +3,15 @@
 public class Ticket
 {
     public int Id { get; set; }
-    
+
     public int ReservationId { get; set; }
     public Reservation Reservation { get; set; } = null!;
-    
+
     public string TicketNumber { get; set; } = string.Empty;
-    
+
+    public string TicketType { get; set; } = "Adult";
+
+    public decimal Price { get; set; }
+
     public DateTime IssuedAt { get; set; } = DateTime.UtcNow;
 }
